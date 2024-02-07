@@ -1,0 +1,20 @@
+<section style="background-color: #eee;">
+    <div class="container py-5">
+        <div class="row">
+            <div class="col-md-12 col-lg-4 mb-4 mb-lg-0" *ngFor="let product of productList">
+                <app-item *ngIf="
+                    (
+                        searchOptions===''||
+                        product.title.toLowerCase().includes(searchOptions.toLowerCase())                    
+                    )">
+                    <p class="text-white mb-0 small" discountPercentage>{{product.discountPercentage +"%"}}</p>
+                    <img [src]="product.thumbnail" class="card-img-top" thumbnail style="height: 250px;" alt="Laptop" />
+                    <a href="#!" class="text-muted" brand>{{product.brand}}</a>
+                    <h5 class="mb-0" title>{{product.title}}</h5>
+                    <h5 class="text-dark mb-0" price>${{product.price}}</h5>
+                    <span class="fw-bold" stock>{{product.stock}}</span>
+                </app-item>
+            </div>
+        </div>
+    </div>
+</section>
