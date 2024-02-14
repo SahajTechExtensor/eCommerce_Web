@@ -1,7 +1,7 @@
-<section style="background-color: #eee;">
-    <div class="container py-5">
+<section class="mt-5" style="background-color: #eee;">
+    <div class="container">
         <div class="row">
-            <div class="col-md-12 col-lg-4 mb-4 mb-lg-0" *ngFor="let product of productList">
+            <div class="col-md-12 col-lg-4 mb-4 mb-lg-0" *ngFor="let product of productList | filter: getCat " >
                 <app-item *ngIf="
                     (
                         searchOptions===''||
@@ -13,6 +13,7 @@
                     <h5 class="mb-0" title>{{product.title}}</h5>
                     <h5 class="text-dark mb-0" price>${{product.price}}</h5>
                     <span class="fw-bold" stock>{{product.stock}}</span>
+                    <button href="" class="btn w-100 p-3 rounded-0 text-warning detail" detail (click)="ProductDetail(product)">Detail</button>
                 </app-item>
             </div>
         </div>
